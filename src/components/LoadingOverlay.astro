@@ -1,0 +1,21 @@
+---
+import loadingImage from "../../assets/cargando.png";
+---
+
+<div class="loading-overlay" id="loading-overlay" aria-label="Cargando Joaos Fast Food">
+  <div class="loading-content">
+    <p class="loading-brand">JOAO'S FAST FOOD</p>
+    <img class="loading-art" src={loadingImage.src} width={loadingImage.width} height={loadingImage.height} alt="" fetchpriority="high" />
+    <div class="loading-copy">
+      <h1 id="loading-title">Preparando algo bueno</h1>
+      <p id="loading-message" role="status" aria-live="polite">Abriendo el menú para ti…</p>
+    </div>
+    <div class="loading-progress-meta">
+      <span>Tu antojo está en camino</span>
+      <span class="loading-progress-value" id="loading-progress-value" aria-hidden="true">0%</span>
+    </div>
+    <div class="loading-progress-track" id="loading-progress" role="progressbar" aria-label="Preparando el menú de Joaos" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <span class="loading-progress-fill" id="loading-progress-fill"></span>
+    </div>
+  </div>
+</div>

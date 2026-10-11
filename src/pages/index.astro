@@ -1,0 +1,23 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import HeroSection from "../components/HeroSection.astro";
+import TrustStrip from "../components/TrustStrip.astro";
+import MenuSection from "../components/MenuSection.astro";
+import HowSection from "../components/HowSection.astro";
+import VisitSection from "../components/VisitSection.astro";
+import OperationsSection from "../components/OperationsSection.astro";
+import FaqSection from "../components/FaqSection.astro";
+import FinalCTA from "../components/FinalCTA.astro";
+import { products } from "../data/menu.js";
+---
+
+<SiteLayout>
+  <HeroSection />
+  <TrustStrip />
+  <MenuSection products={products} />
+  <HowSection />
+  <VisitSection />
+  <OperationsSection />
+  <FaqSection />
+  <FinalCTA />
+</SiteLayout>

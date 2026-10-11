@@ -1,0 +1,14 @@
+---
+const { name, size = 20, class: className = "" } = Astro.props;
+const paths = {
+  burger: '<path d="M3.5 10a8.5 5 0 0 1 17 0"/><path d="M3 11.5h18v3H3z"/><path d="M4 16h16v2H4z"/><path d="M5 20h14"/>',
+  bag: '<path d="M5 8h14l1 13H4z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/>',
+  pin: '<path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>',
+  calendar: '<rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M7.5 3v4M16.5 3v4M4 9h16M8 13h2M14 13h2M8 17h2"/>',
+  chat: '<path d="M20 11.5a7.5 7.5 0 0 1-8 7.5 8.7 8.7 0 0 1-3.3-.6L4 20l1.3-3.3A7.1 7.1 0 0 1 4 12c0-4.1 3.6-7.5 8-7.5s8 3.1 8 7Z"/><path d="M8 12h.01M12 12h.01M16 12h.01"/>',
+  flash: '<path d="m13 2-9 12h7l-1 8 10-13h-7z"/>',
+  instagram: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/>',
+  search: '<circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/>',
+};
+---
+<svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" set:html={paths[name] || paths.burger}></svg>

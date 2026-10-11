@@ -1,0 +1,111 @@
+---
+import { getFoodIcon } from "../data/food-icons.js";
+import Icon from "./Icon.astro";
+const { products } = Astro.props;
+const formatPrice = (price) => `$${Number(price).toFixed(2)}`;
+---
+
+<section class="section menu-section" id="menu">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><div class="kicker">Algo bueno te está esperando</div><h2>Elige tu antojo</h2></div>
+          <p>Elige cantidad y acompañantes. Precios en $ transcritos de la carta compartida; confirma vigencia, ingredientes y disponibilidad por WhatsApp.</p>
+        </div>
+
+        <article class="promo-card" id="combos">
+          <div class="promo-copy">
+            <div class="promo-label">✦ Para compartir sin pensarlo mucho</div>
+            <h3>Promo Smash Joaos</h3>
+            <p>Dos hamburguesas smash y dos raciones de papas. Una combinación publicada por Joaos para compartir.</p>
+            <button class="button" type="button" data-add="smash">Configurar promo <span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="promo-visual">
+            <div class="promo-price"><small>2 smash + 2 papas</small><strong>$15</strong><small>precio publicado en $</small></div>
+            <div class="promo-note">Validar vigencia al confirmar el pedido</div>
+          </div>
+        </article>
+
+        <div class="menu-layout">
+          <div>
+            <div class="menu-search">
+              <div class="menu-search-main">
+                <label for="menu-search-input">Buscar en el menú</label>
+                <div class="menu-search-control">
+                  <Icon name="search" size={19} class="menu-search-icon" />
+                  <input id="menu-search-input" type="search" autocomplete="off" aria-controls="products" placeholder="Ej. pepito, chistorra, papas" />
+                  <button class="search-clear" type="button" id="clear-menu-search" aria-label="Limpiar búsqueda" hidden>Limpiar</button>
+                </div>
+              </div>
+              <p class="menu-result-count" id="menu-result-count" role="status" aria-live="polite">{products.length} {products.length === 1 ? "producto" : "productos"}</p>
+            </div>
+            <div class="filters" role="group" aria-label="Filtrar menú">
+              <button class="filter active" type="button" data-filter="all" aria-pressed="true">Todo</button>
+              <button class="filter" type="button" data-filter="burgers" aria-pressed="false">Hamburguesas</button>
+              <button class="filter" type="button" data-filter="pepitos" aria-pressed="false">Pepitos</button>
+              <button class="filter" type="button" data-filter="enrollados" aria-pressed="false">Enrollados</button>
+              <button class="filter" type="button" data-filter="jumbos" aria-pressed="false">Jumbos</button>
+              <button class="filter" type="button" data-filter="fries" aria-pressed="false">Papas y salchipapas</button>
+              <button class="filter" type="button" data-filter="grill" aria-pressed="false">Parrillas</button>
+              <button class="filter" type="button" data-filter="club" aria-pressed="false">Club house</button>
+              <button class="filter" type="button" data-filter="kids" aria-pressed="false">Infantil</button>
+              <button class="filter" type="button" data-filter="promo" aria-pressed="false">Promos</button>
+            </div>
+            <div class="product-grid" id="products">
+  {products.map((product) => (
+    <article class="product-card" data-category={product.category} data-search={[product.name, product.group, product.description, product.category].filter(Boolean).join(" ")}>
+      <div class="product-top">
+        <span class={`product-art ${product.color}`} set:html={getFoodIcon(product.category)}></span>
+        <span class="product-tag">{product.tag || product.group}</span>
+      </div>
+      <h3>{product.name}</h3>
+      <p>{product.description || "Ingredientes y presentación por confirmar con Joaos."}</p>
+      <div class="product-bottom">
+        <span class="product-price">
+          <small>{product.price === null ? "PRECIO POR CONFIRMAR" : "PRECIO SEGÚN CARTA"}</small>
+          {product.price === null ? "Consultar por chat" : formatPrice(product.price)}
+        </span>
+        <button class="detail-btn" type="button" data-detail={product.id} aria-label={`Ver detalle y opciones de ${product.name}`}>
+          Ver detalle <span aria-hidden="true">↗</span>
+        </button>
+      </div>
+    </article>
+  ))}
+</div>
+            <div class="menu-no-results" id="menu-no-results" hidden>
+              <h3>No encontramos productos</h3>
+              <p>Prueba con otra palabra o revisa los filtros seleccionados.</p>
+              <button class="button" type="button" data-reset-menu>Ver todos los productos</button>
+            </div>
+          </div>
+
+          <aside class="order-card" id="order-card" aria-labelledby="order-title">
+            <div class="order-head"><h3 id="order-title">Tu pedido</h3><button class="order-close" type="button" data-cart-close aria-label="Cerrar resumen del pedido">×</button><span class="order-count" id="order-count">0</span></div>
+            <div class="empty-order" id="empty-order">Todavía no agregas nada.<br />Elige un favorito para empezar.</div>
+            <div class="cart-lines" id="cart-lines"></div>
+            <div class="order-total"><span>Subtotal conocido</span><strong id="known-total">$0</strong></div>
+            <p class="order-disclaimer" id="order-disclaimer">Subtotal estimado con precios transcritos de las cartas compartidas; Joaos debe validar vigencia y total por WhatsApp.</p>
+            <form id="order-details-form">
+              <p class="order-form-intro">Completa estos datos para que Joaos pueda coordinar tu pedido.</p>
+              <div class="order-field">
+                <label>¿Cómo quieres recibirlo?</label>
+                <div class="mode-switch" role="group" aria-label="Modalidad del pedido">
+                  <button type="button" class="mode-btn selected" data-mode="Retiro en local" aria-pressed="true">Retiro en local</button>
+                  <button type="button" class="mode-btn" data-mode="Consultar delivery" aria-pressed="false">Consultar delivery</button>
+                </div>
+              </div>
+              <div class="order-field delivery-address-field" id="delivery-address-field" hidden><label for="delivery-address">Dirección de entrega</label><input id="delivery-address" type="text" maxlength="160" autocomplete="street-address" placeholder="Sector, calle, residencia y referencia" /></div>
+              <div class="order-field"><label for="customer-name">Nombre y apellido</label><input id="customer-name" type="text" maxlength="100" autocomplete="name" placeholder="Como aparece al recibir el pedido" required /></div>
+              <div class="order-field"><label for="customer-id">Cédula</label><input id="customer-id" type="text" maxlength="20" autocomplete="off" placeholder="Número de cédula" required /></div>
+              <div class="order-field"><label for="customer-phone">Nro. de teléfono</label><input id="customer-phone" type="tel" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="0412 000 0000" required /></div>
+              <div class="order-field"><label for="payment-method">Método de pago</label><select id="payment-method" required>
+                <option value="" selected disabled>Selecciona un método</option>
+                <option>Pago móvil</option><option>Efectivo</option><option>Zelle</option><option>PayPal</option><option>Binance</option>
+              </select></div>
+              <div class="order-field"><label for="order-note">Nota para Joaos (opcional)</label><textarea id="order-note" maxlength="240" placeholder="Aclaraciones o detalles del pedido, por ejemplo: sin pepinillos"></textarea></div>
+              <button class="button whatsapp order-send" id="send-order" type="button" disabled>Continuar por WhatsApp <span aria-hidden="true">↗</span></button>
+              <p class="order-foot">Revisa el mensaje en WhatsApp y envíalo para confirmar tu pedido con el equipo.</p>
+            </form>
+          </aside>
+        </div>
+      </div>
+    </section>

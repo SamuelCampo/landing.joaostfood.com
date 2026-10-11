@@ -1,0 +1,1037 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#171324" />
+  <meta name="description" content="Concepto visual de landing page para pedidos directos por WhatsApp de Joaos Fast Food." />
+  <title>Joaos Fast Food | Propuesta visual de pedidos</title>
+  <style>
+    :root {
+      --ink: #171324;
+      --ink-soft: #282239;
+      --purple: #4f3f82;
+      --blue: #7db4e7;
+      --yellow: #ffd33f;
+      --cream: #fbf6e8;
+      --paper: #fffdf7;
+      --muted: #77717f;
+      --line: #e9e2d3;
+      --green: #2d9b63;
+      --radius: 22px;
+      --shadow: 0 18px 50px rgba(23, 19, 36, .12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    button, input, textarea { font: inherit; }
+    a { color: inherit; }
+    button { cursor: pointer; }
+    .wrap { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+
+    .concept-bar {
+      padding: 9px 16px;
+      color: #d9d3e8;
+      background: #100e18;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .concept-bar strong { color: var(--yellow); font-weight: 800; }
+    .site-header { color: white; background: var(--ink); }
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; }
+    .brand-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 14px;
+      color: var(--ink);
+      background: var(--yellow);
+      font-size: 22px;
+      transform: rotate(-4deg);
+    }
+    .brand-word { display: grid; line-height: .92; }
+    .brand-word b { font-size: 20px; letter-spacing: -.055em; }
+    .brand-word small { margin-top: 6px; color: #c8c0d7; font-size: 9px; font-weight: 800; letter-spacing: .22em; }
+    .nav-links { display: flex; gap: 27px; color: #d4cfdd; font-size: 13px; }
+    .nav-links a { text-decoration: none; }
+    .nav-links a:hover { color: var(--yellow); }
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 20px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--ink);
+      background: var(--yellow);
+      font-size: 13px;
+      font-weight: 850;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(255, 211, 63, .2); }
+    .button:focus-visible, button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 3px solid #78b7ef;
+      outline-offset: 3px;
+    }
+    .button.dark { color: white; background: var(--ink); }
+    .button.whatsapp { color: white; background: var(--green); }
+
+    .hero {
+      position: relative;
+      min-height: 590px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      color: white;
+      background: #171324;
+      isolation: isolate;
+    }
+    .hero::before {
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      content: "";
+      background: url("assets/hero-burger-concept.png") center 53% / cover no-repeat;
+      opacity: .92;
+    }
+    .hero::after {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      content: "";
+      background: linear-gradient(90deg, rgba(19, 16, 29, .98) 0%, rgba(24, 19, 37, .91) 32%, rgba(25, 20, 37, .5) 59%, rgba(25, 20, 37, .05) 100%), linear-gradient(0deg, rgba(21, 17, 33, .32), transparent 45%);
+    }
+    .hero-inner { padding-block: 92px 76px; }
+    .hero-copy { width: min(570px, 59%); }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--yellow);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+    .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; box-shadow: 0 0 12px currentColor; }
+    h1, h2, h3, p { margin-top: 0; }
+    .hero h1 {
+      max-width: 580px;
+      margin: 21px 0 18px;
+      font-size: clamp(48px, 6.2vw, 78px);
+      line-height: .98;
+      letter-spacing: -.065em;
+    }
+    .hero h1 em { color: var(--yellow); font-style: normal; }
+    .hero p { max-width: 450px; margin-bottom: 25px; color: #e1ddeb; font-size: 17px; line-height: 1.62; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 13px; }
+    .text-link { color: white; font-size: 13px; font-weight: 750; text-decoration: none; }
+    .text-link span { color: var(--yellow); }
+    .hero-facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 36px; }
+    .fact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 999px;
+      color: #f5f0ff;
+      background: rgba(255,255,255,.08);
+      font-size: 11px;
+      backdrop-filter: blur(8px);
+    }
+    .fact-pill b { color: var(--yellow); }
+    .hero-stamp {
+      position: absolute;
+      right: max(6vw, calc((100vw - 1160px) / 2));
+      bottom: 55px;
+      width: 150px;
+      height: 150px;
+      display: grid;
+      place-content: center;
+      border: 2px dashed var(--ink);
+      border-radius: 50%;
+      color: var(--ink);
+      background: var(--yellow);
+      text-align: center;
+      transform: rotate(9deg);
+      box-shadow: 0 15px 45px rgba(0,0,0,.25);
+    }
+    .hero-stamp strong { font-size: 42px; line-height: .9; letter-spacing: -.07em; }
+    .hero-stamp span { margin-top: 7px; font-size: 9px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+
+    .trust-strip { color: white; background: var(--purple); }
+    .trust-inner { min-height: 63px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .trust-item { display: flex; align-items: center; gap: 9px; color: #f0ebfa; font-size: 12px; font-weight: 680; }
+    .trust-item b { color: var(--yellow); }
+    .trust-icon { font-size: 17px; }
+
+    .section { padding: 90px 0; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 26px; margin-bottom: 30px; }
+    .kicker { margin-bottom: 10px; color: var(--purple); font-size: 11px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+    .section-heading h2 { margin-bottom: 0; font-size: clamp(32px, 4vw, 48px); line-height: 1; letter-spacing: -.06em; }
+    .section-heading p { max-width: 370px; margin-bottom: 3px; color: var(--muted); font-size: 14px; line-height: 1.55; }
+
+    .promo-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      min-height: 250px;
+      margin-bottom: 53px;
+      overflow: hidden;
+      border-radius: 26px;
+      color: white;
+      background: var(--purple);
+      box-shadow: var(--shadow);
+    }
+    .promo-card::before {
+      position: absolute;
+      top: -110px;
+      right: 15%;
+      width: 340px;
+      height: 340px;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 50%;
+      content: "";
+      box-shadow: 0 0 0 28px rgba(255,255,255,.035), 0 0 0 60px rgba(255,255,255,.025);
+    }
+    .promo-copy { position: relative; z-index: 1; align-self: center; padding: 36px 44px; }
+    .promo-label { display: inline-flex; gap: 8px; align-items: center; margin-bottom: 15px; color: var(--yellow); font-size: 10px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+    .promo-copy h3 { margin-bottom: 9px; font-size: clamp(28px, 3.5vw, 42px); line-height: 1; letter-spacing: -.055em; }
+    .promo-copy p { max-width: 420px; margin-bottom: 20px; color: #e2dcee; font-size: 14px; line-height: 1.5; }
+    .promo-visual { position: relative; display: grid; place-items: center; min-height: 220px; }
+    .promo-price {
+      position: relative;
+      z-index: 1;
+      width: 170px;
+      height: 170px;
+      display: grid;
+      place-content: center;
+      border: 8px solid rgba(255,255,255,.19);
+      border-radius: 50%;
+      color: var(--ink);
+      background: var(--yellow);
+      text-align: center;
+      box-shadow: 0 14px 34px rgba(18,14,31,.28);
+      transform: rotate(7deg);
+    }
+    .promo-price small { font-size: 12px; font-weight: 850; }
+    .promo-price strong { font-size: 55px; line-height: .98; letter-spacing: -.08em; }
+    .promo-note { margin-top: 11px; color: #eee9f7; font-size: 10px; }
+
+    .menu-section { background: var(--paper); }
+    .menu-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; align-items: start; gap: 28px; }
+    .filters { display: flex; gap: 9px; overflow-x: auto; padding: 2px 2px 15px; scrollbar-width: thin; }
+    .filter {
+      flex: 0 0 auto;
+      min-height: 38px;
+      padding: 0 15px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #514b5a;
+      background: transparent;
+      font-size: 12px;
+      font-weight: 750;
+    }
+    .filter.active, .filter:hover { border-color: var(--ink); color: white; background: var(--ink); }
+    .product-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
+    .product-card {
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      padding: 18px;
+      border: 1px solid #eee8db;
+      border-radius: 20px;
+      background: white;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .product-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(31, 24, 48, .1); }
+    .product-top { display: flex; align-items: start; justify-content: space-between; gap: 12px; }
+    .product-art {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 17px;
+      background: #eee8ff;
+      font-size: 28px;
+    }
+    .product-art.blue { background: #e4f3ff; }
+    .product-art.yellow { background: #fff2bc; }
+    .product-art.pink { background: #fde6df; }
+    .product-art.green { background: #e5f5e9; }
+    .product-tag { color: var(--purple); font-size: 9px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+    .product-card h3 { margin: 14px 0 6px; font-size: 18px; letter-spacing: -.035em; }
+    .product-card p { min-height: 36px; margin-bottom: 15px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .product-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; }
+    .product-price { font-size: 12px; font-weight: 800; }
+    .product-price small { display: block; margin-bottom: 3px; color: #8a8490; font-size: 9px; font-weight: 650; }
+    .add-btn {
+      min-width: 42px;
+      min-height: 42px;
+      border: 0;
+      border-radius: 14px;
+      color: var(--ink);
+      background: var(--yellow);
+      font-size: 22px;
+      font-weight: 750;
+      line-height: 1;
+    }
+    .add-btn:hover { background: #f5c520; }
+    .detail-btn { min-height: 39px; padding: 0 12px; border: 1px solid #ddd5c6; border-radius: 12px; color: var(--ink); background: white; font-size: 10px; font-weight: 850; white-space: nowrap; }
+    .detail-btn:hover { border-color: var(--purple); color: var(--purple); background: #f7f4ff; }
+
+    .product-dialog {
+      width: min(760px, calc(100% - 28px));
+      max-width: 760px;
+      max-height: min(90vh, 820px);
+      padding: 0;
+      overflow: auto;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 25px;
+      color: var(--ink);
+      background: var(--paper);
+      box-shadow: 0 28px 100px rgba(10, 8, 16, .38);
+    }
+    .product-dialog::backdrop { background: rgba(15, 12, 24, .72); backdrop-filter: blur(5px); }
+    .dialog-head { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 15px; padding: 25px 28px 23px; color: white; background: radial-gradient(circle at 85% 5%, rgba(125,180,231,.28), transparent 32%), var(--ink); }
+    .dialog-heading { display: flex; align-items: center; gap: 15px; }
+    .dialog-art { width: 62px; height: 62px; display: grid; flex: 0 0 auto; place-items: center; border: 1px solid rgba(255,255,255,.17); border-radius: 19px; background: rgba(255,255,255,.1); font-size: 32px; }
+    .dialog-eyebrow { margin: 0 0 5px; color: var(--yellow); font-size: 9px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
+    .dialog-head h2 { margin: 0; font-size: clamp(23px, 4vw, 32px); letter-spacing: -.05em; }
+    .dialog-description { max-width: 500px; margin: 9px 0 0; color: #c8c2d3; font-size: 12px; line-height: 1.55; }
+    .dialog-close { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,.18); border-radius: 13px; color: white; background: rgba(255,255,255,.08); font-size: 20px; }
+    .dialog-body { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; padding: 23px 28px 27px; }
+    .dialog-column { display: grid; align-content: start; gap: 16px; }
+    .dialog-section { padding: 15px; border: 1px solid #ece5d7; border-radius: 17px; background: white; }
+    .dialog-section h3 { margin: 0 0 4px; font-size: 13px; letter-spacing: -.02em; }
+    .dialog-section > p { margin: 0 0 12px; color: var(--muted); font-size: 10px; line-height: 1.5; }
+    .option-list { display: grid; gap: 8px; }
+    .option-row { display: grid; grid-template-columns: 18px 1fr auto; align-items: center; gap: 9px; min-height: 46px; padding: 8px 9px; border: 1px solid #eee9df; border-radius: 12px; background: #fffefa; cursor: pointer; }
+    .option-row:has(input:checked) { border-color: #a99ad8; background: #f5f1ff; }
+    .option-row input { width: 16px; height: 16px; accent-color: var(--purple); }
+    .option-name { font-size: 10px; font-weight: 800; }
+    .option-note { display: block; margin-top: 3px; color: #817b88; font-size: 9px; font-weight: 550; line-height: 1.35; }
+    .option-price { color: var(--ink); font-size: 10px; font-weight: 850; text-align: right; white-space: nowrap; }
+    .option-price.pending { color: #966e15; font-size: 8px; }
+    .dialog-quantity { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .dialog-quantity-copy b { display: block; font-size: 12px; }
+    .dialog-quantity-copy small { display: block; margin-top: 4px; color: var(--muted); font-size: 9px; }
+    .stepper { display: inline-flex; align-items: center; gap: 12px; padding: 4px; border: 1px solid var(--line); border-radius: 13px; background: var(--paper); }
+    .stepper button { width: 34px; height: 34px; border: 0; border-radius: 10px; color: var(--ink); background: #f1ecdf; font-size: 19px; }
+    .stepper strong { min-width: 18px; font-size: 13px; text-align: center; }
+    .dialog-summary { display: grid; gap: 7px; padding: 14px 15px; border-radius: 15px; color: white; background: var(--ink); }
+    .dialog-summary-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 10px; }
+    .dialog-summary-row span { color: #c8c2d3; }
+    .dialog-summary-row strong { color: var(--yellow); font-size: 17px; }
+    .dialog-summary-note { margin: 0; color: #bcb5c8; font-size: 9px; line-height: 1.4; }
+    .dialog-actions { position: sticky; z-index: 2; bottom: -27px; display: flex; align-items: center; justify-content: space-between; gap: 12px; grid-column: 1 / -1; margin: 0 -28px -27px; padding: 12px 28px 18px; border-top: 1px solid #eee8dc; background: var(--paper); }
+    .dialog-actions .button { flex: 1; }
+    .dialog-cancel { padding: 10px 14px; border: 0; color: #6e6875; background: transparent; font-size: 11px; font-weight: 750; }
+    .dialog-price-label { color: var(--yellow); font-size: 10px; font-weight: 850; }
+
+    .order-card {
+      position: sticky;
+      top: 20px;
+      padding: 23px;
+      border-radius: 22px;
+      color: white;
+      background: var(--ink);
+      box-shadow: var(--shadow);
+    }
+    .order-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .order-head h3 { margin: 0; font-size: 19px; letter-spacing: -.035em; }
+    .order-count { min-width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; color: var(--ink); background: var(--yellow); font-size: 11px; font-weight: 900; }
+    .empty-order { padding: 20px 12px; border: 1px dashed rgba(255,255,255,.24); border-radius: 15px; color: #aaa3b7; text-align: center; font-size: 12px; line-height: 1.5; }
+    .cart-lines { display: grid; gap: 10px; max-height: 210px; overflow-y: auto; }
+    .cart-line { display: grid; grid-template-columns: 1fr auto; gap: 9px; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.11); font-size: 11px; }
+    .cart-line b { display: block; color: white; font-size: 12px; }
+    .cart-line small { display: block; margin-top: 3px; color: #aaa3b7; }
+    .quantity { display: inline-flex; align-items: center; gap: 8px; }
+    .quantity button { width: 25px; height: 25px; border: 1px solid rgba(255,255,255,.25); border-radius: 8px; color: white; background: transparent; }
+    .order-total { display: flex; justify-content: space-between; align-items: center; margin: 17px 0 6px; font-size: 12px; }
+    .order-total strong { color: var(--yellow); font-size: 18px; }
+    .order-disclaimer { margin-bottom: 17px; color: #aaa3b7; font-size: 10px; line-height: 1.45; }
+    .order-field { display: grid; gap: 6px; margin-top: 12px; }
+    .order-field label { color: #d4cedf; font-size: 10px; font-weight: 700; }
+    .order-field input, .order-field textarea {
+      width: 100%;
+      min-height: 41px;
+      padding: 10px 12px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 11px;
+      color: white;
+      background: rgba(255,255,255,.07);
+      font-size: 11px;
+    }
+    .order-field textarea { min-height: 65px; resize: vertical; }
+    .mode-switch { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+    .mode-btn { min-height: 37px; padding: 0 8px; border: 1px solid rgba(255,255,255,.2); border-radius: 10px; color: #d5cede; background: transparent; font-size: 10px; font-weight: 750; }
+    .mode-btn.selected { border-color: var(--yellow); color: var(--yellow); background: rgba(255,211,63,.09); }
+    .order-send { width: 100%; margin-top: 15px; }
+    .order-send:disabled { cursor: not-allowed; color: #8d8895; background: #383342; box-shadow: none; transform: none; }
+    .order-foot { margin: 10px 2px 0; color: #9891a5; font-size: 9px; line-height: 1.45; text-align: center; }
+    .order-mobile-trigger { display: none; }
+
+    .how-section { padding: 75px 0; background: #f1e9d9; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; margin-top: 28px; }
+    .step { padding: 22px; border: 1px solid #e3dac8; border-radius: 18px; background: rgba(255,255,255,.56); }
+    .step-num { width: 34px; height: 34px; display: grid; place-items: center; margin-bottom: 15px; border-radius: 11px; color: var(--ink); background: var(--yellow); font-size: 12px; font-weight: 900; }
+    .step h3 { margin-bottom: 7px; font-size: 16px; }
+    .step p { margin-bottom: 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+
+    .visit-section { padding: 84px 0; color: white; background: var(--ink); }
+    .visit-layout { display: grid; grid-template-columns: 1fr .8fr; align-items: center; gap: 50px; }
+    .visit-section .kicker { color: var(--yellow); }
+    .visit-section h2 { max-width: 500px; margin-bottom: 15px; font-size: clamp(36px, 5vw, 57px); line-height: .98; letter-spacing: -.065em; }
+    .visit-section p { max-width: 440px; color: #c7c0d3; font-size: 14px; line-height: 1.65; }
+    .visit-card { padding: 25px; border: 1px solid rgba(255,255,255,.12); border-radius: 20px; background: rgba(255,255,255,.055); }
+    .visit-row { display: grid; grid-template-columns: 38px 1fr; gap: 13px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .visit-row:last-child { border-bottom: 0; }
+    .visit-icon { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 12px; color: var(--ink); background: var(--yellow); }
+    .visit-row b { display: block; margin-bottom: 4px; font-size: 12px; }
+    .visit-row span { color: #c1bacd; font-size: 11px; line-height: 1.45; }
+
+    .ops-section { padding: 82px 0; background: #fffdf7; }
+    .ops-layout { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: 55px; }
+    .ops-section h2 { margin-bottom: 12px; font-size: clamp(32px, 4vw, 46px); line-height: 1; letter-spacing: -.06em; }
+    .ops-section .intro { color: var(--muted); font-size: 13px; line-height: 1.65; }
+    .ops-note { display: inline-flex; margin-top: 4px; padding: 8px 11px; border-radius: 10px; color: #685314; background: #fff4c7; font-size: 10px; font-weight: 800; }
+    .ops-board { padding: 20px; border: 1px solid var(--line); border-radius: 20px; background: #faf7ef; box-shadow: 0 12px 35px rgba(39, 31, 58, .07); }
+    .board-top { display: flex; justify-content: space-between; gap: 14px; align-items: center; margin-bottom: 16px; }
+    .board-top b { font-size: 13px; }
+    .board-top span { color: var(--muted); font-size: 10px; }
+    .board-stages { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .board-stage { min-height: 88px; padding: 11px 10px; border: 1px solid #e9e2d3; border-radius: 13px; background: white; }
+    .board-stage strong { display: block; font-size: 10px; }
+    .board-stage small { display: block; margin-top: 7px; color: #8a8490; font-size: 9px; line-height: 1.4; }
+    .board-stage:nth-child(2) { border-top: 3px solid #9a86d0; }
+    .board-stage:nth-child(3) { border-top: 3px solid #f2b834; }
+    .board-stage:nth-child(4) { border-top: 3px solid #56ac79; }
+    .ops-kpis { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 13px; }
+    .ops-kpis span { padding: 7px 9px; border-radius: 8px; color: #564e61; background: #eee9f5; font-size: 9px; font-weight: 750; }
+    .ops-foot { margin: 12px 0 0; color: #77717f; font-size: 10px; line-height: 1.5; }
+
+    .faq-section { padding: 75px 0; background: #f5eedf; }
+    .faq-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 27px; }
+    .faq-card { padding: 19px; border-radius: 16px; background: white; }
+    .faq-card h3 { margin-bottom: 7px; font-size: 14px; }
+    .faq-card p { margin-bottom: 0; color: var(--muted); font-size: 11px; line-height: 1.55; }
+
+    .final-cta { padding: 65px 0; color: var(--ink); background: var(--yellow); }
+    .final-inner { display: flex; justify-content: space-between; align-items: center; gap: 25px; }
+    .final-inner h2 { margin-bottom: 6px; font-size: clamp(28px, 3.5vw, 42px); letter-spacing: -.06em; }
+    .final-inner p { margin-bottom: 0; color: #574c25; font-size: 13px; }
+    footer { padding: 26px 0 90px; color: #beb6ca; background: var(--ink); font-size: 10px; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 15px; }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a { color: inherit; text-decoration: none; }
+    .concept-disclaimer { margin-top: 20px; color: #8f879e; line-height: 1.55; }
+    .toast { position: fixed; z-index: 20; right: 22px; bottom: 22px; max-width: calc(100% - 44px); padding: 13px 17px; border-radius: 13px; color: white; background: var(--ink); box-shadow: var(--shadow); font-size: 12px; opacity: 0; transform: translateY(12px); transition: .22s ease; pointer-events: none; }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .menu-layout { grid-template-columns: minmax(0, 1fr) 300px; gap: 18px; }
+      .hero-stamp { right: 4%; width: 122px; height: 122px; }
+      .hero-stamp strong { font-size: 35px; }
+      .ops-layout { gap: 28px; }
+      .board-stages { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 720px) {
+      .wrap { width: min(100% - 30px, 560px); }
+      .concept-bar { font-size: 9px; }
+      .nav { min-height: 67px; }
+      .nav-links { display: none; }
+      .nav > .button { min-height: 41px; padding-inline: 14px; font-size: 11px; }
+      .brand-mark { width: 38px; height: 38px; }
+      .brand-word b { font-size: 18px; }
+      .hero { min-height: 680px; align-items: end; }
+      .hero::before { background-position: 61% center; }
+      .hero::after { background: linear-gradient(0deg, rgba(19,16,29,.99) 0%, rgba(19,16,29,.91) 40%, rgba(19,16,29,.42) 75%, rgba(19,16,29,.08) 100%); }
+      .hero-inner { padding-block: 260px 43px; }
+      .hero-copy { width: 100%; }
+      .hero h1 { max-width: 440px; font-size: clamp(45px, 12vw, 66px); }
+      .hero p { max-width: 390px; font-size: 15px; }
+      .hero-facts { margin-top: 23px; }
+      .hero-stamp { top: 25px; right: 22px; bottom: auto; width: 107px; height: 107px; border-width: 1px; }
+      .hero-stamp strong { font-size: 31px; }
+      .hero-stamp span { font-size: 8px; }
+      .trust-inner { min-height: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 13px; padding-block: 17px; }
+      .trust-item { font-size: 10px; }
+      .section { padding: 66px 0; }
+      .section-heading { display: block; margin-bottom: 22px; }
+      .section-heading p { margin-top: 13px; }
+      .promo-card { grid-template-columns: 1fr; min-height: 0; margin-bottom: 43px; }
+      .promo-copy { padding: 26px 25px 5px; }
+      .promo-copy h3 { max-width: 320px; }
+      .promo-visual { min-height: 155px; justify-items: end; padding-right: 35px; }
+      .promo-price { width: 130px; height: 130px; border-width: 6px; }
+      .promo-price strong { font-size: 42px; }
+      .promo-note { margin-top: 9px; font-size: 9px; }
+      .menu-layout { display: block; }
+      .product-grid { gap: 10px; }
+      .product-card { min-height: 220px; padding: 13px; border-radius: 16px; }
+      .product-art { width: 47px; height: 47px; font-size: 24px; border-radius: 14px; }
+      .product-card h3 { margin-top: 12px; font-size: 15px; }
+      .product-card p { font-size: 10px; }
+      .product-price { font-size: 11px; }
+      .add-btn { min-width: 37px; min-height: 37px; border-radius: 12px; }
+      .product-dialog { width: min(100% - 16px, 560px); max-height: 92dvh; border-radius: 20px; }
+      .dialog-head { padding: 19px 17px; }
+      .dialog-art { width: 50px; height: 50px; border-radius: 15px; font-size: 26px; }
+      .dialog-body { grid-template-columns: 1fr; gap: 13px; padding: 15px 15px 19px; }
+      .dialog-column { gap: 12px; }
+      .dialog-actions { position: sticky; bottom: -19px; margin-inline: -15px; padding: 12px 15px max(12px, env(safe-area-inset-bottom)); background: var(--paper); }
+      .dialog-cancel { display: none; }
+      .order-card { position: fixed; z-index: 10; right: 10px; bottom: 10px; left: 10px; max-height: min(80vh, 620px); overflow-y: auto; padding: 18px; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 18px 60px rgba(10,8,16,.36); transform: translateY(calc(100% + 20px)); visibility: hidden; transition: transform .25s ease, visibility .25s; }
+      .order-card.open { transform: translateY(0); visibility: visible; }
+      .order-mobile-trigger { position: fixed; z-index: 9; right: 14px; bottom: 14px; left: 14px; display: flex; justify-content: space-between; align-items: center; min-height: 55px; padding: 0 18px; border: 0; border-radius: 17px; color: white; background: var(--green); box-shadow: 0 12px 30px rgba(23,19,36,.28); font-size: 12px; font-weight: 850; }
+      .order-mobile-trigger b { color: #d8f8e7; }
+      .steps { grid-template-columns: 1fr; gap: 10px; }
+      .step { display: grid; grid-template-columns: 35px 1fr; column-gap: 12px; padding: 16px; }
+      .step-num { grid-row: span 2; margin: 0; }
+      .step h3 { margin-bottom: 4px; }
+      .step p { grid-column: 2; }
+      .visit-layout, .ops-layout { grid-template-columns: 1fr; gap: 28px; }
+      .visit-section { padding: 68px 0; }
+      .ops-section { padding: 66px 0; }
+      .board-stages { grid-template-columns: repeat(2, 1fr); }
+      .faq-grid { grid-template-columns: 1fr; }
+      .final-inner { display: block; }
+      .final-inner .button { margin-top: 18px; }
+      footer { padding-bottom: 90px; }
+      .footer-inner { align-items: start; flex-direction: column; }
+      .concept-disclaimer { margin-top: 13px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="concept-bar"><strong>Propuesta visual</strong> · menú y promo sujetos a validación antes de publicar</div>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#inicio" aria-label="Joaos Fast Food, inicio">
+        <span class="brand-mark" aria-hidden="true">🍔</span>
+        <span class="brand-word"><b>JOAO'S</b><small>FAST FOOD</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#menu">Menú</a>
+        <a href="#combos">Promos</a>
+        <a href="#visitanos">Visítanos</a>
+      </nav>
+      <a class="button" href="#menu">Pedir ahora <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="dot"></span> EL ANTOJO SE RESUELVE AQUÍ</span>
+          <h1>Hoy se come <em>con ganas.</em></h1>
+          <p>Hamburguesas, pepitos, enrollados y parrillas con todo el sabor de Joaos. Elige tus favoritos y arma tu pedido directo por WhatsApp.</p>
+          <div class="hero-actions">
+            <a class="button" href="#menu">Arma tu pedido <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="#visitanos">Estamos en Guarenas <span>↗</span></a>
+          </div>
+          <div class="hero-facts">
+            <span class="fact-pill">📍 Trocha de Nueva Casarapa</span>
+            <span class="fact-pill">🗓️ <b>Cerrado los miércoles</b></span>
+          </div>
+        </div>
+        <div class="hero-stamp" aria-label="Promo smash publicada a 15 dólares">
+          <span>promo smash</span><strong>$15</strong><span>2 smash + 2 papas</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="wrap trust-inner">
+        <div class="trust-item"><span class="trust-icon">⚡</span><span>Tu pedido llega <b>ordenado al chat</b></span></div>
+        <div class="trust-item"><span class="trust-icon">🍔</span><span>Elige por categoría y cantidad</span></div>
+        <div class="trust-item"><span class="trust-icon">📲</span><span>Confirma disponibilidad con Joaos</span></div>
+        <div class="trust-item"><span class="trust-icon">📍</span><span>Guarenas · Nueva Casarapa</span></div>
+      </div>
+    </div>
+
+    <section class="section menu-section" id="menu">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><div class="kicker">Algo bueno te está esperando</div><h2>Elige tu antojo</h2></div>
+          <p>Abre cada producto para elegir cantidad, acompañantes y adicionales. Los precios corresponden a las cartas compartidas y deben confirmarse antes de publicar.</p>
+        </div>
+
+        <article class="promo-card" id="combos">
+          <div class="promo-copy">
+            <div class="promo-label">✦ Para compartir sin pensarlo mucho</div>
+            <h3>Promo Smash Joaos</h3>
+            <p>Dos hamburguesas smash y dos raciones de papas. Una combinación publicada por Joaos para compartir.</p>
+            <button class="button" type="button" data-add="smash">Configurar promo <span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="promo-visual">
+            <div class="promo-price"><small>2 smash + 2 papas</small><strong>$15</strong><small>precio publicado</small></div>
+            <div class="promo-note">Validar vigencia al confirmar el pedido</div>
+          </div>
+        </article>
+
+        <div class="menu-layout">
+          <div>
+            <div class="filters" role="group" aria-label="Filtrar menú">
+              <button class="filter active" type="button" data-filter="all" aria-pressed="true">Todo</button>
+              <button class="filter" type="button" data-filter="burgers" aria-pressed="false">Hamburguesas</button>
+              <button class="filter" type="button" data-filter="pepitos" aria-pressed="false">Pepitos</button>
+              <button class="filter" type="button" data-filter="enrollados" aria-pressed="false">Enrollados</button>
+              <button class="filter" type="button" data-filter="jumbos" aria-pressed="false">Jumbos</button>
+              <button class="filter" type="button" data-filter="fries" aria-pressed="false">Papas y salchipapas</button>
+              <button class="filter" type="button" data-filter="grill" aria-pressed="false">Parrillas</button>
+              <button class="filter" type="button" data-filter="club" aria-pressed="false">Club house</button>
+              <button class="filter" type="button" data-filter="kids" aria-pressed="false">Infantil</button>
+              <button class="filter" type="button" data-filter="promo" aria-pressed="false">Promos</button>
+            </div>
+            <div class="product-grid" id="products" aria-live="polite"></div>
+          </div>
+
+          <aside class="order-card" id="order-card" aria-label="Resumen del pedido">
+            <div class="order-head"><h3>Tu pedido</h3><span class="order-count" id="order-count">0</span></div>
+            <div class="empty-order" id="empty-order">Todavía no agregas nada.<br />Elige un favorito para empezar.</div>
+            <div class="cart-lines" id="cart-lines"></div>
+            <div class="order-total"><span>Subtotal conocido</span><strong id="known-total">$0</strong></div>
+            <p class="order-disclaimer" id="order-disclaimer">Subtotal estimado con precios transcritos de las cartas compartidas; Joaos debe validar vigencia y total por WhatsApp.</p>
+            <div class="order-field">
+              <label>¿Cómo quieres recibirlo?</label>
+              <div class="mode-switch" role="group" aria-label="Modalidad del pedido">
+                <button type="button" class="mode-btn selected" data-mode="Retiro en local" aria-pressed="true">Retiro en local</button>
+                <button type="button" class="mode-btn" data-mode="Consultar delivery" aria-pressed="false">Consultar delivery</button>
+              </div>
+            </div>
+            <div class="order-field"><label for="customer-name">Tu nombre (opcional)</label><input id="customer-name" type="text" maxlength="60" placeholder="¿Con quién hablamos?" /></div>
+            <div class="order-field"><label for="order-note">Nota para Joaos (opcional)</label><textarea id="order-note" maxlength="240" placeholder="Aclaraciones o detalles del pedido"></textarea></div>
+            <button class="button whatsapp order-send" id="send-order" type="button" disabled>Continuar por WhatsApp <span aria-hidden="true">↗</span></button>
+            <p class="order-foot">El pedido queda confirmado cuando el equipo te responda por WhatsApp.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-section">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><div class="kicker">Rápido y sin vueltas</div><h2>Así de fácil se pide</h2></div>
+          <p>La página organiza la compra. WhatsApp mantiene la conversación y la confirmación en manos del equipo.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><span class="step-num">01</span><h3>Arma tu orden</h3><p>Selecciona tus productos, cantidades y modalidad desde el menú.</p></article>
+          <article class="step"><span class="step-num">02</span><h3>Revisa el resumen</h3><p>El mensaje incluye lo elegido, tu nombre y cualquier nota para Joaos.</p></article>
+          <article class="step"><span class="step-num">03</span><h3>Confirma por WhatsApp</h3><p>El equipo verifica precio vigente, disponibilidad, cobertura y tiempo estimado.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit-section" id="visitanos">
+      <div class="wrap visit-layout">
+        <div>
+          <div class="kicker">Nos vemos en Joaos</div>
+          <h2>El sabor que te mueve está en la Trocha.</h2>
+          <p>Una parada para comer rico en Guarenas. Si vas a pasar por el local o quieres consultar entrega, escríbele al equipo antes para confirmar disponibilidad.</p>
+          <a class="button" href="#menu">Pedir por WhatsApp <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="visit-card">
+          <div class="visit-row"><span class="visit-icon">📍</span><div><b>Ubicación</b><span>Trocha de Nueva Casarapa · Guarenas</span></div></div>
+          <div class="visit-row"><span class="visit-icon">🗓️</span><div><b>Día de cierre</b><span>Miércoles. Consulta el horario del día por WhatsApp.</span></div></div>
+          <div class="visit-row"><span class="visit-icon">📲</span><div><b>Pedidos y consultas</b><span>0424-1353049 · WhatsApp</span></div></div>
+          <div class="visit-row"><span class="visit-icon">◎</span><div><b>Sigue el sabor</b><span><a href="https://www.instagram.com/joaosfastfood/" target="_blank" rel="noreferrer">@joaosfastfood</a></span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ops-section" id="gestion">
+      <div class="wrap ops-layout">
+        <div>
+          <div class="kicker">También pensado para el equipo</div>
+          <h2>Cada clic puede ayudar a vender mejor.</h2>
+          <p class="intro">El enlace de WhatsApp recibe un pedido más claro y con contexto. La landing puede registrar qué productos se agregan y cuántas personas pasan al chat. Un tablero ligero completa el seguimiento del equipo.</p>
+          <span class="ops-note">Vista operativa propuesta · no activa en este prototipo</span>
+        </div>
+        <div class="ops-board">
+          <div class="board-top"><b>Seguimiento diario de pedidos</b><span>Ejemplo de flujo</span></div>
+          <div class="board-stages">
+            <div class="board-stage"><strong>Nuevo</strong><small>Llegó al chat<br />por confirmar</small></div>
+            <div class="board-stage"><strong>Confirmado</strong><small>Precio y modalidad<br />acordados</small></div>
+            <div class="board-stage"><strong>En preparación</strong><small>Pedido enviado<br />a cocina</small></div>
+            <div class="board-stage"><strong>Listo / entregado</strong><small>Cierre y monto<br />de la venta</small></div>
+          </div>
+          <div class="ops-kpis"><span>Clics a WhatsApp</span><span>Productos solicitados</span><span>Pedidos confirmados</span><span>Ventas por promo</span></div>
+          <p class="ops-foot">El clic mide intención, no una venta cerrada. Confirmaciones y monto real se registran manualmente o mediante una integración posterior con WhatsApp Business.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="wrap">
+        <div class="section-heading"><div><div class="kicker">Antes de escribir</div><h2>Preguntas rápidas</h2></div><p>Resolvemos las dudas frecuentes y dejamos el chat para confirmar el pedido.</p></div>
+        <div class="faq-grid">
+          <article class="faq-card"><h3>¿Hacen delivery?</h3><p>Consulta la cobertura y disponibilidad por WhatsApp; se confirma según tu zona.</p></article>
+          <article class="faq-card"><h3>¿El precio de la promo sigue vigente?</h3><p>La promo smash aparece publicada a $15. Joaos confirma su vigencia al recibir tu mensaje.</p></article>
+          <article class="faq-card"><h3>¿Qué día está cerrado el local?</h3><p>El perfil indica que Joaos cierra los miércoles. Confirma el horario antes de pasar.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="wrap final-inner">
+        <div><h2>¿Ya sabes qué se te antoja?</h2><p>Arma tu pedido y continúa la conversación con Joaos en WhatsApp.</p></div>
+        <a class="button dark" href="#menu">Elegir productos <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-inner">
+        <a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true">🍔</span><span class="brand-word"><b>JOAO'S</b><small>FAST FOOD</small></span></a>
+        <div class="footer-links"><a href="#menu">Menú</a><a href="#visitanos">Ubicación</a><a href="https://www.instagram.com/joaosfastfood/" target="_blank" rel="noreferrer">Instagram</a></div>
+      </div>
+      <p class="concept-disclaimer">Prototipo visual. La fotografía del hero es ilustrativa; debe reemplazarse por fotos autorizadas de Joaos. Menú, precios, horarios, cobertura y enlace final de WhatsApp requieren validación del negocio antes de publicar.</p>
+    </div>
+  </footer>
+
+  <button class="order-mobile-trigger" id="mobile-cart" type="button" aria-controls="order-card" aria-expanded="false"><span>🛍️ Ver mi pedido <b id="mobile-count">0</b></span><span>Continuar →</span></button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <dialog class="product-dialog" id="product-dialog" aria-labelledby="dialog-title">
+    <div id="dialog-content"></div>
+  </dialog>
+
+  <script>
+    const products = [
+      { id: "burger-simple", name: "Sencilla", category: "burgers", group: "Hamburguesas", art: "🍔", color: "yellow", price: 5.5 },
+      { id: "burger-special", name: "Especial", category: "burgers", group: "Hamburguesas", art: "🍔", color: "pink", price: 8 },
+      { id: "burger-chistorra", name: "Especial Chistorra", category: "burgers", group: "Hamburguesas", art: "🌭", color: "yellow", price: 9 },
+      { id: "burger-mix", name: "Especial Mixta", category: "burgers", group: "Hamburguesas", art: "🍔", color: "pink", price: 10 },
+      { id: "burger-triple", name: "Especial Triple", category: "burgers", group: "Hamburguesas", art: "🍔", color: "yellow", price: 12 },
+      { id: "burger-house", name: "Especial de la Casa", category: "burgers", group: "Hamburguesas", art: "⭐", color: "blue", price: 12, tag: "De la casa" },
+      { id: "burger-portugal", name: "Joao en Portugal", category: "burgers", group: "Hamburguesas", art: "🍔", color: "green", price: 14 },
+      { id: "burger-crispy", name: "Pollo Crispy", category: "burgers", group: "Hamburguesas", art: "🍗", color: "yellow", price: 9 },
+      { id: "burger-half-pound", name: "Media Libra", category: "burgers", group: "Hamburguesas", art: "🍔", color: "pink", price: 9.5 },
+      { id: "burger-mexican", name: "Mexicana", category: "burgers", group: "Hamburguesas", art: "🌶️", color: "yellow", price: 9.5 },
+      { id: "burger-bbq", name: "BBQ", category: "burgers", group: "Hamburguesas", art: "🔥", color: "pink", price: 9.5 },
+      { id: "burger-bacon", name: "Bacon Champion", category: "burgers", group: "Hamburguesas", art: "🥓", color: "yellow", price: 9.5 },
+      { id: "burger-pound", name: "Libra", category: "burgers", group: "Hamburguesas", art: "🍔", color: "green", price: 15 },
+      { id: "burger-pork", name: "Carne de Cerdo", category: "burgers", group: "Hamburguesas", art: "🥩", color: "pink", price: 9 },
+      { id: "burger-toci", name: "Tocipollo o Tocicarne", category: "burgers", group: "Hamburguesas", art: "🥓", color: "yellow", price: 9.5 },
+      { id: "enrollado-mix", name: "Mixto o de Pollo", category: "enrollados", group: "Enrollados", art: "🌯", color: "blue", price: 10 },
+      { id: "enrollado-molusco", name: "Molusco", category: "enrollados", group: "Enrollados", art: "🌯", color: "green", price: 13.5 },
+      { id: "enrollado-portugal", name: "Joao en Portugal", category: "enrollados", group: "Enrollados", art: "🌯", color: "yellow", price: 13.5 },
+      { id: "enrollado-crispy", name: "Pollo Crispy", category: "enrollados", group: "Enrollados", art: "🍗", color: "pink", price: 10.5 },
+      { id: "jumbo-hotdog", name: "Perros calientes", category: "jumbos", group: "Jumbos", art: "🌭", color: "yellow", price: 2 },
+      { id: "jumbo-cheese", name: "Con queso", category: "jumbos", group: "Jumbos", art: "🧀", color: "pink", price: 3 },
+      { id: "jumbo-special", name: "Especial", category: "jumbos", group: "Jumbos", art: "🌭", color: "blue", price: 3.5 },
+      { id: "jumbo-joaos", name: "Joaos", category: "jumbos", group: "Jumbos", art: "🌭", color: "yellow", price: 4 },
+      { id: "jumbo-choripan", name: "Choripan", category: "jumbos", group: "Jumbos", art: "🥖", color: "pink", price: 5 },
+      { id: "jumbo-pepiperro", name: "Pepiperro", category: "jumbos", group: "Jumbos", art: "🌭", color: "blue", price: 5.5 },
+      { id: "jumbo-parrillero", name: "Parrillero", category: "jumbos", group: "Jumbos", art: "🔥", color: "green", price: 6 },
+      { id: "jumbo-shrimp", name: "Jumbo Camarón", category: "jumbos", group: "Jumbos", art: "🍤", color: "pink", price: 6 },
+      { id: "pepito-mini", name: "Mini Pepito", category: "pepitos", group: "Pepitos", art: "🥖", color: "yellow", price: 9 },
+      { id: "pepito-mix", name: "Mixto", category: "pepitos", group: "Pepitos", art: "🥖", color: "pink", price: 12 },
+      { id: "pepito-house", name: "Pepito de la Casa", category: "pepitos", group: "Pepitos", art: "⭐", color: "blue", price: 19, tag: "De la casa" },
+      { id: "pepito-portugal", name: "Joao en Portugal", category: "pepitos", group: "Pepitos", art: "🥖", color: "green", price: 20 },
+      { id: "pepito-meter", name: "Pepito de 1 metro", category: "pepitos", group: "Pepitos", art: "🥖", color: "yellow", price: 39, tag: "Para compartir" },
+      { id: "pepito-long", name: "Pepito de 1.20 metros", category: "pepitos", group: "Pepitos", art: "🥖", color: "pink", price: 45, tag: "Para compartir" },
+      { id: "fries-medium", name: "Papas fritas · Mediana (300 g)", category: "fries", group: "Papas y salchipapas", art: "🍟", color: "yellow", price: 3.5 },
+      { id: "fries-large", name: "Papas fritas · Grande (400 g)", category: "fries", group: "Papas y salchipapas", art: "🍟", color: "pink", price: 4.5 },
+      { id: "fries-xl", name: "Papas fritas · Extra grande (500 g)", category: "fries", group: "Papas y salchipapas", art: "🍟", color: "yellow", price: 5.5 },
+      { id: "fries-special", name: "Papas especiales", category: "fries", group: "Papas y salchipapas", art: "🍟", color: "blue", price: 6 },
+      { id: "fries-joaos", name: "Papas Joaos", category: "fries", group: "Papas y salchipapas", art: "🍟", color: "green", price: 8 },
+      { id: "salchipapa-simple", name: "Salchipapa sencilla", category: "fries", group: "Papas y salchipapas", art: "🍟", color: "pink", price: 6 },
+      { id: "salchipapa", name: "Salchipapa", category: "fries", group: "Papas y salchipapas", art: "🍟", color: "yellow", price: 8 },
+      { id: "chistopapa", name: "Chistopapa", category: "fries", group: "Papas y salchipapas", art: "🍟", color: "blue", price: 9 },
+      { id: "mixed-sausage", name: "Plato mixto de salchichas", category: "fries", group: "Papas y salchipapas", art: "🍽️", color: "green", price: 7 },
+      { id: "grill-one", name: "Parrilla · 1 persona", category: "grill", group: "Parrillas", art: "🥩", color: "green", price: 10 },
+      { id: "grill-two", name: "Parrilla · 2 personas", category: "grill", group: "Parrillas", art: "🥩", color: "pink", price: 19 },
+      { id: "grill-sea-one", name: "Mar y Tierra · 1 persona", category: "grill", group: "Parrillas", art: "🦐", color: "blue", price: 13 },
+      { id: "grill-sea-two", name: "Mar y Tierra · 2 personas", category: "grill", group: "Parrillas", art: "🦐", color: "green", price: 25 },
+      { id: "grill-family", name: "Parrilla familiar", category: "grill", group: "Parrillas", art: "🔥", color: "yellow", price: 37.5 },
+      { id: "grill-joaos", name: "Parrilla Joaos", category: "grill", group: "Parrillas", art: "🥩", color: "pink", price: 12 },
+      { id: "club-four", name: "Club house · 4 piezas", category: "club", group: "Club House", art: "🥪", color: "yellow", price: 9 },
+      { id: "club-house", name: "Club house de la Casa", category: "club", group: "Club House", art: "🥪", color: "pink", price: 11 },
+      { id: "club-share", name: "Club house para compartir", category: "club", group: "Club House", art: "🥪", color: "blue", price: 16 },
+      { id: "club-family", name: "Club house familiar", category: "club", group: "Club House", art: "🥪", color: "green", price: 22 },
+      { id: "kids-tenders", name: "Tenders con papas fritas", category: "kids", group: "Menú infantil", art: "🍗", color: "yellow", price: 6 },
+      { id: "kids-box", name: "Cajita Feliz", category: "kids", group: "Menú infantil", art: "🎁", color: "pink", price: 8 },
+      { id: "smash", name: "Promo Smash Joaos", category: "promo", group: "Promos", art: "🍔", color: "yellow", description: "2 hamburguesas smash + 2 raciones de papas.", price: 15, priceLabel: "Precio publicado · validar vigencia", tag: "Promo" },
+      { id: "family-promo", name: "Mega promo familiar", category: "promo", group: "Promos", art: "🍟", color: "blue", description: "8 hamburguesas, papas familiares, 20 tequeños y refresco de 2 litros.", price: null, includesDrink: true, tag: "Para compartir" }
+    ];
+    const addons = [
+      { id: "drink", name: "Refresco", note: "Presentación y precio por confirmar con Joaos.", price: null, section: "pending" },
+      { id: "upsize", name: "Agrandar papas incluidas", note: "Solo si el producto trae papas. Recargo por confirmar.", price: null, section: "pending" },
+      { id: "side-medium", name: "Porción adicional · papas medianas (300 g)", note: "Ración completa según la carta.", price: 3.5, section: "priced" },
+      { id: "side-large", name: "Porción adicional · papas grandes (400 g)", note: "Ración completa según la carta.", price: 4.5, section: "priced" },
+      { id: "side-xl", name: "Porción adicional · papas extra grandes (500 g)", note: "Ración completa según la carta.", price: 5.5, section: "priced" },
+      { id: "side-special", name: "Porción adicional · papas especiales", note: "Ración completa según la carta.", price: 6, section: "priced" },
+      { id: "side-joaos", name: "Porción adicional · papas Joaos", note: "Ración completa según la carta.", price: 8, section: "priced" }
+    ];
+    const cart = new Map();
+    let selectedMode = "Retiro en local";
+    let activeFilter = "all";
+    let modalProduct = null;
+    let modalQuantity = 1;
+    let toastTimer;
+    const productsNode = document.querySelector("#products");
+    const countNode = document.querySelector("#order-count");
+    const mobileCountNode = document.querySelector("#mobile-count");
+    const cartLinesNode = document.querySelector("#cart-lines");
+    const emptyNode = document.querySelector("#empty-order");
+    const totalNode = document.querySelector("#known-total");
+    const sendNode = document.querySelector("#send-order");
+    const toastNode = document.querySelector("#toast");
+    const orderCard = document.querySelector("#order-card");
+    const mobileCart = document.querySelector("#mobile-cart");
+    const productDialog = document.querySelector("#product-dialog");
+    const dialogContent = document.querySelector("#dialog-content");
+    const money = (value) => `$${Number(value).toFixed(2)}`;
+
+    function getProduct(id) { return products.find((product) => product.id === id); }
+    function getAddon(id) { return addons.find((addon) => addon.id === id); }
+    function itemDescription(product) {
+      return product.description || `${product.group} de la carta Joaos. Ingredientes, modificaciones y disponibilidad se confirman al hacer el pedido.`;
+    }
+    function cardDescription(product) {
+      return product.description || "Abre el detalle para elegir cantidad y agregar acompañantes.";
+    }
+
+    function renderProducts() {
+      const visible = activeFilter === "all" ? products : products.filter((product) => product.category === activeFilter);
+      productsNode.innerHTML = visible.map((product) => `
+        <article class="product-card">
+          <div class="product-top"><span class="product-art ${product.color}" aria-hidden="true">${product.art}</span><span class="product-tag">${product.tag || product.group}</span></div>
+          <h3>${product.name}</h3>
+          <p>${cardDescription(product)}</p>
+          <div class="product-bottom"><span class="product-price"><small>${product.price === null ? "PRECIO POR CONFIRMAR" : "PRECIO SEGÚN CARTA"}</small>${product.price === null ? "Consultar por chat" : money(product.price)}</span><button class="detail-btn" type="button" data-detail="${product.id}" aria-label="Ver detalle y opciones de ${product.name}">Ver detalle <span aria-hidden="true">↗</span></button></div>
+        </article>`).join("");
+    }
+
+    function announce(message) {
+      toastNode.textContent = message;
+      toastNode.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toastNode.classList.remove("show"), 2400);
+    }
+
+    function openProductModal(id) {
+      modalProduct = getProduct(id);
+      if (!modalProduct) return;
+      modalQuantity = 1;
+      const priceText = modalProduct.price === null ? "Precio por confirmar" : money(modalProduct.price);
+      const priceLabel = modalProduct.priceLabel || "Precio según carta compartida";
+      const optionRows = (section) => addons.filter((addon) => addon.section === section && !(modalProduct.includesDrink && addon.id === "drink")).map((addon) => `
+        <label class="option-row">
+          <input type="checkbox" data-addon="${addon.id}" />
+          <span class="option-name">${addon.name}<small class="option-note">${addon.note}</small></span>
+          <span class="option-price ${addon.price === null ? "pending" : ""}">${addon.price === null ? "Por confirmar" : `+${money(addon.price)}`}</span>
+        </label>`).join("");
+      dialogContent.innerHTML = `
+        <div class="dialog-head">
+          <div>
+            <div class="dialog-heading"><span class="dialog-art" aria-hidden="true">${modalProduct.art}</span><div><p class="dialog-eyebrow">${modalProduct.group}</p><h2 id="dialog-title">${modalProduct.name}</h2></div></div>
+            <p class="dialog-description">${itemDescription(modalProduct)}</p>
+          </div>
+          <button class="dialog-close" type="button" data-dialog-close aria-label="Cerrar detalle">×</button>
+        </div>
+        <div class="dialog-body">
+          <div class="dialog-column">
+            <section class="dialog-section"><h3>Personaliza tu pedido</h3><p>Los adicionales se aplican a cada unidad de este producto.</p>
+              <div class="option-list">${optionRows("pending")}</div>
+            </section>
+            <section class="dialog-section"><h3>Agrega otra porción de papas</h3><p>Estas son raciones completas con precio en la carta, no el recargo por agrandar unas papas incluidas.</p>
+              <div class="option-list">${optionRows("priced")}</div>
+            </section>
+          </div>
+          <div class="dialog-column">
+            <section class="dialog-section"><div class="dialog-quantity"><div class="dialog-quantity-copy"><b>¿Cuántos quieres?</b><small>${priceLabel}</small></div><div class="stepper"><button type="button" data-modal-quantity="-1" aria-label="Quitar una unidad">−</button><strong id="modal-quantity">1</strong><button type="button" data-modal-quantity="1" aria-label="Agregar una unidad">+</button></div></div>
+              <p style="margin:12px 0 0;color:var(--muted);font-size:10px;line-height:1.45">${priceText}${modalProduct.price === null ? ". Joaos confirmará el monto." : " por unidad, tomado de la carta compartida."}</p>
+            </section>
+            <div class="dialog-summary" aria-live="polite"><div class="dialog-summary-row"><span>Subtotal conocido</span><strong id="modal-estimate">${modalProduct.price === null ? "Por confirmar" : money(modalProduct.price)}</strong></div><p class="dialog-summary-note" id="modal-summary-note">${modalProduct.price === null ? "Este producto no tiene precio legible en la carta compartida." : "Los precios de carta deben validarse con Joaos antes de publicar."}</p></div>
+            <section class="dialog-section"><h3>Al confirmar por WhatsApp</h3><p>El equipo valida vigencia de precios, disponibilidad, presentación del refresco y recargo de las papas agrandadas.</p></section>
+          </div>
+          <div class="dialog-actions"><button class="dialog-cancel" type="button" data-dialog-close>Seguir mirando</button><button class="button" id="modal-add" type="button">Agregar al pedido <span aria-hidden="true">＋</span></button></div>
+        </div>`;
+      productDialog.showModal();
+      productDialog.querySelector("[data-dialog-close]").focus();
+      productDialog.querySelectorAll("[data-addon]").forEach((checkbox) => checkbox.addEventListener("change", updateModalEstimate));
+      updateModalEstimate();
+    }
+
+    function selectedAddonIds() {
+      return [...productDialog.querySelectorAll("[data-addon]:checked")].map((checkbox) => checkbox.dataset.addon);
+    }
+
+    function updateModalEstimate() {
+      if (!modalProduct) return;
+      const selected = selectedAddonIds().map(getAddon);
+      const knownUnit = (modalProduct.price || 0) + selected.reduce((sum, addon) => sum + (addon.price || 0), 0);
+      const estimate = document.querySelector("#modal-estimate");
+      const note = document.querySelector("#modal-summary-note");
+      document.querySelector("#modal-quantity").textContent = String(modalQuantity);
+      estimate.textContent = knownUnit > 0 ? money(knownUnit * modalQuantity) : "Por confirmar";
+      const hasPending = modalProduct.price === null || selected.some((addon) => addon.price === null);
+      note.textContent = hasPending
+        ? "El subtotal suma solo conceptos con precio legible. Hay valores por confirmar y el total final puede cambiar."
+        : "Estimado con precios de la carta compartida. Joaos confirma vigencia y disponibilidad por WhatsApp.";
+    }
+
+    function addModalProduct() {
+      if (!modalProduct) return;
+      const addonIds = selectedAddonIds();
+      const key = [modalProduct.id, ...addonIds].join("::");
+      const current = cart.get(key);
+      cart.set(key, { productId: modalProduct.id, addonIds, quantity: (current?.quantity || 0) + modalQuantity });
+      renderCart();
+      const productName = modalProduct.name;
+      productDialog.close();
+      announce(`${productName} agregado al pedido`);
+    }
+
+    function setQuantity(lineKey, delta) {
+      const line = cart.get(lineKey);
+      if (!line) return;
+      const next = line.quantity + delta;
+      if (next <= 0) cart.delete(lineKey);
+      else cart.set(lineKey, { ...line, quantity: next });
+      renderCart();
+    }
+
+    function lineAmounts(line) {
+      const product = getProduct(line.productId);
+      const chosen = line.addonIds.map(getAddon);
+      const knownUnit = (product.price || 0) + chosen.reduce((sum, addon) => sum + (addon.price || 0), 0);
+      const hasPending = product.price === null || chosen.some((addon) => addon.price === null);
+      return { product, chosen, knownTotal: knownUnit * line.quantity, hasPending };
+    }
+
+    function renderCart() {
+      const entries = [...cart.entries()];
+      const totalItems = entries.reduce((sum, [, line]) => sum + line.quantity, 0);
+      const knownTotal = entries.reduce((sum, [, line]) => sum + lineAmounts(line).knownTotal, 0);
+      const hasPending = entries.some(([, line]) => lineAmounts(line).hasPending);
+      countNode.textContent = String(totalItems);
+      mobileCountNode.textContent = String(totalItems);
+      totalNode.textContent = money(knownTotal);
+      emptyNode.hidden = totalItems > 0;
+      sendNode.disabled = totalItems === 0;
+      document.querySelector("#order-disclaimer").textContent = hasPending
+        ? "El subtotal suma solo productos y adicionales con precio legible. Los importes pendientes se confirmarán por WhatsApp."
+        : "Importes estimados a partir de las cartas compartidas; Joaos confirma vigencia y total final por WhatsApp.";
+      cartLinesNode.innerHTML = entries.map(([key, line]) => {
+        const { product, chosen, knownTotal: lineTotal, hasPending: linePending } = lineAmounts(line);
+        const details = chosen.map((addon) => `${addon.name}${addon.price === null ? " · precio por confirmar" : ` · ${money(addon.price)} c/u`}`).join("; ");
+        const priceLabel = lineTotal > 0 ? `Monto conocido: ${money(lineTotal)}` : "Precio por confirmar";
+        return `<div class="cart-line"><div><b>${line.quantity} × ${product.name}</b><small>${priceLabel}${linePending ? " · hay adicionales o precios por confirmar" : ""}${details ? `<br />Adicionales: ${details}` : ""}</small></div><div class="quantity"><button type="button" data-qty="${key}" data-delta="-1" aria-label="Quitar una unidad de ${product.name}">−</button><span>${line.quantity}</span><button type="button" data-qty="${key}" data-delta="1" aria-label="Agregar una unidad de ${product.name}">+</button></div></div>`;
+      }).join("");
+      mobileCart.setAttribute("aria-expanded", orderCard.classList.contains("open") ? "true" : "false");
+    }
+
+    document.addEventListener("click", (event) => {
+      const add = event.target.closest("[data-add], [data-detail]");
+      if (add) openProductModal(add.dataset.add || add.dataset.detail);
+      const addFromModal = event.target.closest("#modal-add");
+      if (addFromModal) addModalProduct();
+      const close = event.target.closest("[data-dialog-close]");
+      if (close) productDialog.close();
+      const modalDelta = event.target.closest("[data-modal-quantity]");
+      if (modalDelta) {
+        modalQuantity = Math.max(1, modalQuantity + Number(modalDelta.dataset.modalQuantity));
+        updateModalEstimate();
+      }
+      const qty = event.target.closest("[data-qty]");
+      if (qty) setQuantity(qty.dataset.qty, Number(qty.dataset.delta));
+      const filter = event.target.closest("[data-filter]");
+      if (filter) {
+        activeFilter = filter.dataset.filter;
+        document.querySelectorAll(".filter").forEach((button) => {
+          const active = button === filter;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-pressed", String(active));
+        });
+        renderProducts();
+      }
+      const mode = event.target.closest("[data-mode]");
+      if (mode) {
+        selectedMode = mode.dataset.mode;
+        document.querySelectorAll(".mode-btn").forEach((button) => {
+          const active = button === mode;
+          button.classList.toggle("selected", active);
+          button.setAttribute("aria-pressed", String(active));
+        });
+      }
+    });
+
+    productDialog.addEventListener("click", (event) => {
+      if (event.target === productDialog) productDialog.close();
+    });
+
+    mobileCart.addEventListener("click", () => {
+      orderCard.classList.toggle("open");
+      mobileCart.setAttribute("aria-expanded", orderCard.classList.contains("open") ? "true" : "false");
+      if (orderCard.classList.contains("open")) document.querySelector("#customer-name").focus({ preventScroll: true });
+    });
+
+    sendNode.addEventListener("click", () => {
+      const entries = [...cart.values()];
+      const knownTotal = entries.reduce((sum, line) => sum + lineAmounts(line).knownTotal, 0);
+      const lines = entries.flatMap((line) => {
+        const { product, chosen, knownTotal: lineTotal } = lineAmounts(line);
+        const productPrice = product.price === null ? "precio por confirmar" : `${money(product.price * line.quantity)} por ${line.quantity}`;
+        const result = [`• ${line.quantity} × ${product.name} — ${productPrice}`];
+        chosen.forEach((addon) => {
+          const addonPrice = addon.price === null ? "precio por confirmar" : `${money(addon.price * line.quantity)} por ${line.quantity}`;
+          result.push(`   ↳ ${line.quantity} × ${addon.name} — ${addonPrice}`);
+        });
+        if (lineTotal > 0 && product.price === null) result.push(`   ↳ Importe conocido de esta línea: ${money(lineTotal)} (sin el precio del producto)`);
+        return result;
+      });
+      const name = document.querySelector("#customer-name").value.trim();
+      const note = document.querySelector("#order-note").value.trim();
+      const pendingAddons = [...new Set(entries.flatMap((line) => line.addonIds.map(getAddon).filter((addon) => addon.price === null).map((addon) => addon.name)))];
+      const message = [
+        "¡Hola, Joaos! Quiero consultar y confirmar este pedido:",
+        "",
+        ...lines,
+        "",
+        `Subtotal conocido (no incluye importes por confirmar): ${money(knownTotal)}`,
+        `Modalidad: ${selectedMode}`,
+        name ? `Nombre: ${name}` : "",
+        note ? `Nota: ${note}` : "",
+        `¿Me confirman vigencia de precios, disponibilidad y total final?${pendingAddons.length ? ` También quisiera confirmar: ${pendingAddons.join(", ")}.` : ""}`,
+        "Referencia: landing Joaos"
+      ].filter(Boolean).join("\n");
+      const whatsappUrl = `https://wa.me/584241353049?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    });
+
+    renderProducts();
+    renderCart();
+  </script>
+</body>
+</html>

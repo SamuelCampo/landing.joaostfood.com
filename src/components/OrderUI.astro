@@ -1,0 +1,9 @@
+---
+import Icon from "./Icon.astro";
+---
+<button class="order-mobile-trigger" id="mobile-cart" type="button" aria-controls="order-card" aria-expanded="false"><span><Icon name="bag" size={19} /> Ver mi pedido <b id="mobile-count">0</b></span><span>Continuar <span aria-hidden="true">→</span></span></button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <dialog class="product-dialog" id="product-dialog" aria-labelledby="dialog-title">
+    <div id="dialog-content"></div>
+  </dialog>

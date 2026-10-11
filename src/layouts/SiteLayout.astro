@@ -1,0 +1,37 @@
+---
+import "../styles/global.css";
+import ConceptBar from "../components/ConceptBar.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import OrderUI from "../components/OrderUI.astro";
+import LoadingOverlay from "../components/LoadingOverlay.astro";
+
+const {
+  title = "Joaos Fast Food | Pedidos por WhatsApp",
+  description = "Arma tu pedido de Joaos Fast Food desde el menú y continúa la compra por WhatsApp.",
+} = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#171324" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <LoadingOverlay />
+    <div id="site-page">
+      <ConceptBar />
+      <SiteHeader />
+      <main><slot /></main>
+      <SiteFooter />
+      <OrderUI />
+    </div>
+    <script>
+      import "../scripts/order.js";
+      import "../scripts/loading.js";
+    </script>
+  </body>
+</html>
