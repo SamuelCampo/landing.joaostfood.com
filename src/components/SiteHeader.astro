@@ -1,18 +1,13 @@
 ---
 import { Image } from "astro:assets";
-import logoImage from "../assets/image-removebg-preview.png";
+import logoImage from "../../assets/image-removebg-preview.png";
 import Icon from "./Icon.astro";
 ---
 
 <header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="#inicio" aria-label="Joaos Fast Food, inicio">
-      <Image
-        src={logoImage.src}
-        alt="Joaos Fast Food"
-        width={100}
-        height={100}
-      />
+      <Image src={logoImage} alt="Joaos Fast Food" width={100} height={100} />
     </a>
     <nav class="nav-links" aria-label="Navegación principal">
       <a href="#menu">Menú</a>
