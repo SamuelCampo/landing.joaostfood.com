@@ -251,10 +251,13 @@ mobileCart.addEventListener("click", () => {
   syncOrderSheet();
 });
 
-mobileOrderQuery.addEventListener("change", () => {
+function syncOrderSheetForViewport() {
   if (!mobileOrderQuery.matches) orderCard.classList.remove("open");
   syncOrderSheet();
-});
+}
+
+mobileOrderQuery.addEventListener("change", syncOrderSheetForViewport);
+window.addEventListener("resize", syncOrderSheetForViewport);
 
 sendNode.addEventListener("click", () => {
   if (!orderDetailsForm.reportValidity()) return;
