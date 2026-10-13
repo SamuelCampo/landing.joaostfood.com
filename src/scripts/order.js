@@ -21,6 +21,7 @@ const sendNode = document.querySelector("#send-order");
 const toastNode = document.querySelector("#toast");
 const orderCard = document.querySelector("#order-card");
 const mobileCart = document.querySelector("#mobile-cart");
+const mobileOrderQuery = window.matchMedia("(max-width: 720px)");
 const productDialog = document.querySelector("#product-dialog");
 const dialogContent = document.querySelector("#dialog-content");
 const deliveryAddressField = document.querySelector("#delivery-address-field");
@@ -170,7 +171,13 @@ function renderCart() {
     const priceLabel = lineTotal > 0 ? `Monto conocido: ${money(lineTotal)}` : "Precio por confirmar";
     return `<div class="cart-line"><div><b>${line.quantity} × ${product.name}</b><small>${priceLabel}${linePending ? " · hay adicionales o precios por confirmar" : ""}${details ? `<br />Adicionales: ${details}` : ""}</small></div><div class="quantity"><button type="button" data-qty="${key}" data-delta="-1" aria-label="Quitar una unidad de ${product.name}">−</button><span>${line.quantity}</span><button type="button" data-qty="${key}" data-delta="1" aria-label="Agregar una unidad de ${product.name}">+</button></div></div>`;
   }).join("");
-  mobileCart.setAttribute("aria-expanded", orderCard.classList.contains("open") ? "true" : "false");
+  syncOrderSheet();
+}
+
+function syncOrderSheet() {
+  const open = orderCard.classList.contains("open");
+  orderCard.inert = mobileOrderQuery.matches && !open;
+  mobileCart.setAttribute("aria-expanded", String(open));
 }
 
 document.addEventListener("click", (event) => {
@@ -230,7 +237,7 @@ document.addEventListener("click", (event) => {
   const closeCart = event.target.closest("[data-cart-close]");
   if (closeCart) {
     orderCard.classList.remove("open");
-    mobileCart.setAttribute("aria-expanded", "false");
+    syncOrderSheet();
     mobileCart.focus({ preventScroll: true });
   }
 });
@@ -241,7 +248,12 @@ productDialog.addEventListener("click", (event) => {
 
 mobileCart.addEventListener("click", () => {
   orderCard.classList.toggle("open");
-  mobileCart.setAttribute("aria-expanded", orderCard.classList.contains("open") ? "true" : "false");
+  syncOrderSheet();
+});
+
+mobileOrderQuery.addEventListener("change", () => {
+  if (!mobileOrderQuery.matches) orderCard.classList.remove("open");
+  syncOrderSheet();
 });
 
 sendNode.addEventListener("click", () => {
